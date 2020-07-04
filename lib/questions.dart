@@ -33,6 +33,7 @@ class _QuestionsState extends State<Questions> {
   int boy = 0;
   int girl = 0;
   bool display = false;
+  bool visibility = true;
   Map data = {};
   Timer _time;
 
@@ -233,168 +234,180 @@ Container(
 //Main Question 
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: Container(
+              child: Visibility(
+                visible: visibility,
+                              child: Container(
              // height: dh*0.1,
-              width: dw,
-              margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
-              color: Colors.pink[400],
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("${questionIndex+1})  ${questions[questionIndex].question}",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  
-                  color: Colors.white,
-                  fontSize: 24
+                width: dw,
+                margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                color: Colors.pink[400],
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("${questionIndex+1})  ${questions[questionIndex].question}",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    
+                    color: Colors.white,
+                    fontSize: 24
+                  ),
+                  ),
                 ),
                 ),
-              ),
               ),
             ),
 
 ///Answers             
-            InkWell(
-              onTap: () {
-                   // print(questions[questionIndex].boyAnswer);
-                      if(questions[questionIndex].boyAnswer == 'q1'){
-                        setState(() {
-                          boy++;
-                        });
-                      }
-                      if(questions[questionIndex].boyAnswer == 'q2'){
-                        setState(() {
-                          girl++;
-                        });
-                      }
-                    setState(() {
-                      questionIndex++;
-                                           if(questionIndex+1 == questions.length){
-                      questionIndex=9;
+            Visibility(
+              visible: visibility,
+                          child: InkWell(
+                onTap: () {
+                     // print(questions[questionIndex].boyAnswer);
+                        if(questions[questionIndex].boyAnswer == 'q1'){
+                          setState(() {
+                            boy++;
+                          });
+                        }
+                        if(questions[questionIndex].boyAnswer == 'q2'){
+                          setState(() {
+                            girl++;
+                          });
+                        }
+                      setState(() {
+                        questionIndex++;
+                                             if(questionIndex == questions.length){
+                        questionIndex=9;
+visibility = false;
+                         transitionToresult(context);
+                         }
+                      // if(questions[questionIndex].boyAnswer == 'q1'){boy++;}
+                      });
+                    },
+                            child: Card(
+                  //color: Colors.pink,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
 
-                       transitionToresult(context);
-                       }
-                    // if(questions[questionIndex].boyAnswer == 'q1'){boy++;}
-                    });
-                  },
-                          child: Card(
-                //color: Colors.pink,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)
-
-                ),
-                elevation: 8,
-                margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(questions[questionIndex].q1,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                        
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                    ),),
-                        
-                      ],
-                    
-                    ),
+                  ),
+                  elevation: 8,
+                  margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Text(questions[questionIndex].q1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                          
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                      ),),
+                          
+                        ],
+                      
+                      ),
+                  ),
                 ),
               ),
             ),
             SizedBox(height: 10,),
-           InkWell(
-             onTap: () {
-                    //print('q2');
-                    if(questions[questionIndex].boyAnswer == 'q1'){
-                        setState(() {
-                          girl++;
-                        });
-                      }
-                      if(questions[questionIndex].boyAnswer == 'q2'){
-                        setState(() {
-                          boy++;
-                        });
-                      }
-                     setState(() {
-                      questionIndex++;
-                     if(questionIndex+1 == questions.length){
-                      questionIndex=9;
-
-                       transitionToresult(context);
-                       }
-                    });
-                  },
-                  
-                        child: Card(
-                //color: Colors.pink,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)
-
-                ),
-                elevation: 8,
-                margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(questions[questionIndex].q2,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                        
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                    ),),
-                        
-                      ],
+           Visibility(
+             visible: visibility,
+                        child: InkWell(
+               onTap: () {
+                      //print('q2');
+                      if(questions[questionIndex].boyAnswer == 'q1'){
+                          setState(() {
+                            girl++;
+                          });
+                        }
+                        if(questions[questionIndex].boyAnswer == 'q2'){
+                          setState(() {
+                            boy++;
+                          });
+                        }
+                       setState(() {
+                        questionIndex++;
+                       if(questionIndex == questions.length){
+                        questionIndex=9;
+visibility = false;
+                         transitionToresult(context);
+                         }
+                      });
+                    },
                     
-                    ),
+                          child: Card(
+                  //color: Colors.pink,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
+
+                  ),
+                  elevation: 8,
+                  margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Text(questions[questionIndex].q2,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                          
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                      ),),
+                          
+                        ],
+                      
+                      ),
+                  ),
                 ),
-              ),
+             ),
            ),
            SizedBox(height: 10,),
-            InkWell(
-                onTap: () {
-                    //print('q3');
-                    
-                     setState(() {
-                      questionIndex++;
-                      print(questionIndex);
-                                          if(questionIndex == questions.length){
-                                            print(questionIndex);
-                                              questionIndex=9;
+            Visibility(
+              visible: visibility,
+                          child: InkWell(
+                  onTap: () {
+                      //print('q3');
+                      
+                       setState(() {
+                        questionIndex++;
+                        print(questionIndex);
+                                            if(questionIndex == questions.length){
+                                              print(questionIndex);
+                                                questionIndex=9;
+                                                visibility = false;
+                         transitionToresult(context);
+                         }
+                      });
+                    },
+                            child: Card(
+                  //color: Colors.pink,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
 
-                       transitionToresult(context);
-                       }
-                    });
-                  },
-                          child: Card(
-                //color: Colors.pink,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)
-
-                ),
-                elevation: 8,
-                margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(questions[questionIndex].q3,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                        
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                    ),),
-                        
-                      ],
-                    
-                    ),
+                  ),
+                  elevation: 8,
+                  margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Text(questions[questionIndex].q3,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                          
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                      ),),
+                          
+                        ],
+                      
+                      ),
+                  ),
                 ),
               ),
             ),
@@ -413,9 +426,15 @@ transitionToresult (context) {
   print('inside function');
 
 
-Timer timer=  new Timer.periodic(new Duration(seconds: 1), (time) {
+Timer timer=  new Timer.periodic(new Duration(seconds: 2), (time) {
     print('Something');
-    Navigator.pushReplacementNamed(context, '/result');
+   
+    Navigator.pushReplacementNamed(context, '/result',
+    arguments: {
+      'boy':boy,
+      'girl':girl
+    }
+    );
     time.cancel();
   });
 
