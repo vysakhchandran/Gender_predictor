@@ -34,6 +34,7 @@ class _QuestionsState extends State<Questions> {
   int girl = 0;
   bool display = false;
   Map data = {};
+  Timer _time;
 
 
 
@@ -41,7 +42,8 @@ class _QuestionsState extends State<Questions> {
   
   @override
   Widget build(BuildContext context) {
-    if(boy != 0){display = true;}
+    
+    if(boy != 0 || girl != 0 ){display = true;}
 
   
     double dw = MediaQuery.of(context).size.width;
@@ -267,6 +269,11 @@ Container(
                       }
                     setState(() {
                       questionIndex++;
+                                           if(questionIndex+1 == questions.length){
+                      questionIndex=9;
+
+                       transitionToresult(context);
+                       }
                     // if(questions[questionIndex].boyAnswer == 'q1'){boy++;}
                     });
                   },
@@ -312,12 +319,12 @@ Container(
                         });
                       }
                      setState(() {
-                       print(questionIndex+2);
-                      
-                      
-
                       questionIndex++;
-                     if(questionIndex+1 == questions.length){Navigator.popAndPushNamed(context, '/result');}
+                     if(questionIndex+1 == questions.length){
+                      questionIndex=9;
+
+                       transitionToresult(context);
+                       }
                     });
                   },
                   
@@ -355,7 +362,13 @@ Container(
                     
                      setState(() {
                       questionIndex++;
-                     
+                      print(questionIndex);
+                                          if(questionIndex == questions.length){
+                                            print(questionIndex);
+                                              questionIndex=9;
+
+                       transitionToresult(context);
+                       }
                     });
                   },
                           child: Card(
@@ -391,5 +404,21 @@ Container(
       
     );
   }
-}
 
+
+
+
+//Transition to result page wait 
+transitionToresult (context) {
+  print('inside function');
+
+
+Timer timer=  new Timer.periodic(new Duration(seconds: 1), (time) {
+    print('Something');
+    Navigator.pushReplacementNamed(context, '/result');
+    time.cancel();
+  });
+
+  
+}
+}
