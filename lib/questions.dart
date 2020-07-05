@@ -214,6 +214,7 @@ Row(
                       color: Colors.white,
                       fontSize: 28,
                       fontWeight: FontWeight.w800
+                    
                     ),
                     )),
               ],
