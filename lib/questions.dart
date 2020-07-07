@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:momsdoctor/warning.dart';
 import 'QuestionsModel.dart';
 //import 'package:vibration/vibration.dart';
 
@@ -80,7 +79,7 @@ class _QuestionsState extends State<Questions> {
   @override
 void initState() { 
   super.initState();
-  warningBadge(context);
+ 
 }
 
   @override
@@ -91,8 +90,8 @@ void initState() {
 
     double dw = MediaQuery.of(context).size.width;
     double dh = MediaQuery.of(context).size.height;
-    data = ModalRoute.of(context).settings.arguments;
-    print(data['english']);
+  //  data = ModalRoute.of(context).settings.arguments;
+  //  print(data['english']);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink,
@@ -273,7 +272,7 @@ void initState() {
                       child: Text(
                         "${questionIndex + 1})  ${questions[questionIndex].question}",
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
                   ),
@@ -281,55 +280,60 @@ void initState() {
               ),
 
               ///Answers
-              Visibility(
-                visible: visibility,
-                child: InkWell(
-                  onTap: () {
-                    // print(questions[questionIndex].boyAnswer);
-                    if (questions[questionIndex].boyAnswer == 'q1') {
-                      setState(() {
-                        boy++;
-                      });
-                    }
-                    if (questions[questionIndex].boyAnswer == 'q2') {
-                      setState(() {
-                        girl++;
-                      });
-                    }
-                    setState(() {
-                      questionIndex++;
-                      if (questionIndex == questions.length) {
-                        questionIndex = 9;
-                        visibility = false;
-                        transitionToresult(context);
-                      }
-                      // if(questions[questionIndex].boyAnswer == 'q1'){boy++;}
-                    });
-                  },
-                  child: Card(
-                    //color: Colors.pink,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    elevation: 8,
-                    margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          Text(
-                            questions[questionIndex].q1,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Visibility(
+                    visible: visibility,
+                    child: InkWell(
+                      onTap: () {
+                        // print(questions[questionIndex].boyAnswer);
+                        if (questions[questionIndex].boyAnswer == 'q1') {
+                          setState(() {
+                            boy++;
+                          });
+                        }
+                        if (questions[questionIndex].boyAnswer == 'q2') {
+                          setState(() {
+                            girl++;
+                          });
+                        }
+                        setState(() {
+                          questionIndex++;
+                          if (questionIndex == questions.length) {
+                            questionIndex = 9;
+                            visibility = false;
+                            transitionToresult(context);
+                          }
+                          // if(questions[questionIndex].boyAnswer == 'q1'){boy++;}
+                        });
+                      },
+                      child: Card(
+                        //color: Colors.pink,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        elevation: 8,
+                        margin: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Text(
+                                questions[questionIndex].q1,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
               SizedBox(
                 height: 10,
