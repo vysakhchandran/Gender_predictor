@@ -8,6 +8,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool english = false;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,25 +45,29 @@ class _HomeState extends State<Home> {
             InkWell(
               onTap: () {
                 print('clicked hindi');
-              },
-                          child: Container(
-                padding: EdgeInsets.symmetric(vertical: 9, horizontal: 80),
-                decoration: BoxDecoration(
-                  color: Colors.redAccent,
-                  borderRadius: BorderRadius.circular(24)
+
                 
-                ),
-              child: Text(
-                "  हिन्दी  ",
-                style: TextStyle(color: Colors.white, fontSize: 24),
-                ),
-              ),
-            ),
-            
-          ],
-        ),
-      ),
-   
-    );
-  }
+                              },
+                                          child: Container(
+                                padding: EdgeInsets.symmetric(vertical: 9, horizontal: 80),
+                                decoration: BoxDecoration(
+                                  color: Colors.redAccent,
+                                  borderRadius: BorderRadius.circular(24)
+                                
+                                ),
+                              child: Text(
+                                "  हिन्दी  ",
+                                style: TextStyle(color: Colors.white, fontSize: 24),
+                                ),
+                              ),
+                            ),
+                            
+                          ],
+                        ),
+                      ),
+                   
+                    );
+                  }
+                
+
 }
