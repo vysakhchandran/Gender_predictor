@@ -24,7 +24,7 @@ class _ResultState extends State<Result> {
   bool Equ = false;
   @override
   Widget build(BuildContext context) {
-       double dw = MediaQuery.of(context).size.width;
+  //     double dw = MediaQuery.of(context).size.width;
     double dh = MediaQuery.of(context).size.height;
         data = ModalRoute.of(context).settings.arguments;
         boy=data['boy'];
@@ -168,6 +168,7 @@ body: SingleChildScrollView(
       color: Colors.blueAccent,
       elevation: 10,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(

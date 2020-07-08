@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:momsdoctor/warning.dart';
-import 'dart:async';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);

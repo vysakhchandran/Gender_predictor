@@ -96,10 +96,13 @@ void initState() {
       appBar: AppBar(
         backgroundColor: Colors.pink,
         elevation: 0,
-        title: Text(
-          "Amm's Baby Gender Predictor",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+
+        title: Center(
+          child: Text(
+            "Amazing Gender Predictor",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+          ),
         ),
       ),
       backgroundColor: Colors.pink[50],
@@ -398,9 +401,9 @@ void initState() {
 
                     setState(() {
                       questionIndex++;
-                      print(questionIndex);
+                  //    print(questionIndex);
                       if (questionIndex == questions.length) {
-                        print(questionIndex);
+                   //     print(questionIndex);
                         questionIndex = 9;
                         visibility = false;
                         transitionToresult(context);
@@ -444,10 +447,10 @@ void initState() {
 
 //Transition to result page wait
   transitionToresult(context) {
-    print('inside function');
+   // print('inside function');
 
     Timer timer = new Timer.periodic(new Duration(seconds: 1), (time) {
-      print('Something');
+    //  print('Something');
 
       Navigator.pushReplacementNamed(context, '/result',
           arguments: {'boy': boy, 'girl': girl});
