@@ -1,6 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:launch_review/launch_review.dart';
+
 
 class Result extends StatefulWidget {
   Result({Key key}) : super(key: key);
@@ -162,7 +164,39 @@ body: SingleChildScrollView(
   SizedBox(height: dh*.05,),
   InkWell(
     onTap: () {
-    Navigator.pushReplacementNamed(context, '/');
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Can you help please ?"),
+            content: Text("Just like the baby, we also need your love and support. Please consider rating our app "),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Can't help now",
+                style: TextStyle(
+                  fontSize: 16,
+                ),),
+                onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/');
+                },
+              ),
+              FlatButton(
+                child: Text("Yes, I'll help",
+                style: TextStyle(
+                  fontSize: 16,
+                ),),
+                onPressed: () {
+                      LaunchReview.launch(
+      androidAppId: "com.momsdoctor.amazinggenderpredictor"
+    );
+                },
+              )
+            ],
+          );
+        },
+        );
+
+ 
     },
     child:   Card(
       color: Colors.blueAccent,
