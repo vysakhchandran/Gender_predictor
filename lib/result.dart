@@ -174,7 +174,7 @@ body: SingleChildScrollView(
               FlatButton(
                 child: Text("Can't help now",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 14,
                 ),),
                 onPressed: () {
                     Navigator.pushReplacementNamed(context, '/');
