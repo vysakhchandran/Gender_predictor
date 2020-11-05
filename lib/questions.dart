@@ -87,21 +87,21 @@ class _QuestionsState extends State<Questions> {
 void initState() { 
   super.initState();
 //  Admob.initialize("ca-app-pub-4610155922736447~9264367577");
-FirebaseAdMob.instance.initialize(appId: "ca-app-pub-4610155922736447~9264367577");
+// FirebaseAdMob.instance.initialize(appId: "ca-app-pub-4610155922736447~9264367577");
 
-myBanner
-  // typically this happens well before the ad is shown
-  ..load()
-  ..show(
-    // Positions the banner ad 60 pixels from the bottom of the screen
-    anchorOffset: 0.0,
-    // Positions the banner ad 10 pixels from the center of the screen to the right
-    horizontalCenterOffset: 0.0,
-    // Banner Position
-    anchorType: AnchorType.top,
-  );
+// myBanner
+//   // typically this happens well before the ad is shown
+//   ..load()
+//   ..show(
+//     // Positions the banner ad 60 pixels from the bottom of the screen
+//     anchorOffset: 0.0,
+//     // Positions the banner ad 10 pixels from the center of the screen to the right
+//     horizontalCenterOffset: 0.0,
+//     // Banner Position
+//     anchorType: AnchorType.top,
+//   );
 
-  myInterstitial.load();
+//   myInterstitial.load();
 
 }
 
@@ -475,12 +475,12 @@ myBanner
 //Transition to result page wait
   transitionToresult(context) {
    // print('inside function');
-myInterstitial.show(
-anchorType: AnchorType.bottom,
+// myInterstitial.show(
+// anchorType: AnchorType.bottom,
 
-    anchorOffset: 0.0,
-    horizontalCenterOffset: 0.0,
-  );
+//     anchorOffset: 0.0,
+//     horizontalCenterOffset: 0.0,
+//   );
       Timer timer = new Timer.periodic(new Duration(seconds: 1), (time) {
     //  print('Something');
 
@@ -490,35 +490,35 @@ anchorType: AnchorType.bottom,
     });
   }
 }
-MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-  keywords: <String>['baby milk', 'baby diapers','baby bed','baby carrier'],
-  contentUrl: 'https://flutter.io',
+// MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+//   keywords: <String>['baby milk', 'baby diapers','baby bed','baby carrier'],
+//   contentUrl: 'https://flutter.io',
 
-  childDirected: false,
+//   childDirected: false,
  
-// or MobileAdGender.female, MobileAdGender.unknown
-  testDevices: <String>[], // Android emulators are considered test devices
-);
+// // or MobileAdGender.female, MobileAdGender.unknown
+//   testDevices: <String>[], // Android emulators are considered test devices
+// );
 
-BannerAd myBanner = BannerAd(
-  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
-  // https://developers.google.com/admob/android/test-ads
-  // https://developers.google.com/admob/ios/test-ads
-  adUnitId: "ca-app-pub-4610155922736447/6255060852",
-  size: AdSize.banner,
-  targetingInfo: targetingInfo,
-  listener: (MobileAdEvent event) {
-    print("BannerAd event is $event");
-  },
-);
+// BannerAd myBanner = BannerAd(
+//   // Replace the testAdUnitId with an ad unit id from the AdMob dash.
+//   // https://developers.google.com/admob/android/test-ads
+//   // https://developers.google.com/admob/ios/test-ads
+//   adUnitId: "ca-app-pub-4610155922736447/6255060852",
+//   size: AdSize.banner,
+//   targetingInfo: targetingInfo,
+//   listener: (MobileAdEvent event) {
+//     print("BannerAd event is $event");
+//   },
+// );
 
-InterstitialAd myInterstitial = InterstitialAd(
-  // Replace the testAdUnitId with an ad unit id from the AdMob dash.
-  // https://developers.google.com/admob/android/test-ads
-  // https://developers.google.com/admob/ios/test-ads
-  adUnitId: "ca-app-pub-4610155922736447~9264367577",
-  targetingInfo: targetingInfo,
-  listener: (MobileAdEvent event) {
-    print("InterstitialAd event is $event");
-  },
-);
+// InterstitialAd myInterstitial = InterstitialAd(
+//   // Replace the testAdUnitId with an ad unit id from the AdMob dash.
+//   // https://developers.google.com/admob/android/test-ads
+//   // https://developers.google.com/admob/ios/test-ads
+//   adUnitId: "ca-app-pub-4610155922736447~9264367577",
+//   targetingInfo: targetingInfo,
+//   listener: (MobileAdEvent event) {
+//     print("InterstitialAd event is $event");
+//   },
+// );
