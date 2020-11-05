@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "987697337637",
+    "firebase_url": "https://amazing-gender-predictor.firebaseio.com",
+    "project_id": "amazing-gender-predictor",
+    "storage_bucket": "amazing-gender-predictor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987697337637:android:af95c980a02ca033e676cc",
+        "android_client_info": {
+          "package_name": "com.momsdoctor.amazinggenderpredictor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987697337637-p9pbmckmfoopsqp39p2fqeclhor7m6nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAsyhwttEPHxtpFAeQGz6e_mWVOSQ2mIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987697337637-p9pbmckmfoopsqp39p2fqeclhor7m6nf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-4610155922736447~9264367577"
+    }
+  ],
+  "configuration_version": "1"
+}
